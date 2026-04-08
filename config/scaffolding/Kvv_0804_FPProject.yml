@@ -8,12 +8,20 @@ packages:
   gitUsername: Karthik-V-IBM-10
   gitBranch: main
 - name: WmSalesforceRESTProvider
+  version: 12.0.0.0.16
   wpmServer: https://packages.webmethods.io
   wpmRegistry: licensed
+- name: DADA_GlobalVariable1
+  gitServerName: MJANGit
+  gitUrl: https://github.com/manoj-jannu-IBM
+  gitUsername: manoj-jannu-IBM
+  gitBranch: main
 services:
 - serviceName: project.kvv_0804_fp.WmSalesforceRESTProvider.com_webmethods_cloudstreams_salesforce_rest_v60.connections:rest0804
   packages:
   - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: DADA_GlobalVariable1
     version: "1.0"
   - name: WmSalesforceRESTProvider
     version: 12.0.0.0.16
@@ -21,11 +29,31 @@ services:
   packages:
   - name: Kvv_0804_FPProject
     version: "1.0"
+  - name: DADA_GlobalVariable1
+    version: "1.0"
   - name: WmSalesforceRESTProvider
     version: 12.0.0.0.16
 - serviceName: project.kvv_0804_fp.referencedata:ref1
   packages:
   - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: DADA_GlobalVariable1
+    version: "1.0"
+  - name: WmSalesforceRESTProvider
+    version: 12.0.0.0.16
+- serviceName: project.kvv_0804_fp.integrations:sfREST
+  packages:
+  - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: DADA_GlobalVariable1
+    version: "1.0"
+  - name: WmSalesforceRESTProvider
+    version: 12.0.0.0.16
+- serviceName: project.kvv_0804_fp.WmSalesforceRESTProvider.com_webmethods_cloudstreams_salesforce_rest_v60.operations.actions:restAction
+  packages:
+  - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: DADA_GlobalVariable1
     version: "1.0"
   - name: WmSalesforceRESTProvider
     version: 12.0.0.0.16
@@ -72,12 +100,14 @@ configurationVariables:
   : URL Query String
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.timeoutType
   : auto
+  ? iscloudstreamsconnectorservice.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..operations..actions:restAction.virtualServiceName
+  : WmCloudStreams.RestVS
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.startupBackoffSecs
   : "10"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.authorizationServerUrl
   : https://login.salesforce.com/services/oauth2/authorize
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth.accessToken
-  : "{AES}bzO+KX5xKoE0CKrgiYZryDr8htPRGuUMY3q4TndvSIQ6E3Hih2GI/xLe8CAGMBhBc5ZOWvNUI+3pwbsAg1sNfIBX4BHDEwKsjJ9XzOKnpS1oSsZMHmkNTnWajawBLOChHhYVaKBE7rCdHk1MTHVOXWmK1wuN3U1rA1B0VhuZoUw="
+  : "{AES}bzO+KX5xKoE0CKrgiYZryKxS2NVwK6HkAcdlocPAK3cSwlFxXZaNQSaYDLomvMdRnTc9y71w4vrmdZo32deC+riyGOzDQ2PWHGR+enADq+yG7D/ZPRBLK4758yfHpiEMWQaj7H0JjShOfa8LjDvlFmmK1wuN3U1rA1B0VhuZoUw="
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.readTimeout
   : "30000"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.refreshAccessToken
@@ -88,6 +118,8 @@ configurationVariables:
   : "-1"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.blockTimeout
   : "1000"
+  ? iscloudstreamsconnectorservice.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..operations..actions:restAction.connectionAlias
+  : project.kvv_0804_fp.WmSalesforceRESTProvider.com_webmethods_cloudstreams_salesforce_rest_v60.connections:rest0804
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.retryCount
   : "4"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.authenticationServerUrl
