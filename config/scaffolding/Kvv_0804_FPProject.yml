@@ -30,6 +30,7 @@ packages:
   gitUsername: Karthik-V-IBM-10
   gitBranch: main
 - name: WmJDBCAdapter
+  version: 10.3.0.0.34
   wpmServer: https://packages.webmethods.io
   wpmRegistry: licensed
 services:
@@ -272,10 +273,10 @@ configurationVariables:
   : tcp
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.enableCompression
   : "false"
-  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.startupBackoffSecs
-  : "10"
   ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.transactionType
   : NO_TRANSACTION
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.startupBackoffSecs
+  : "10"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.socketLinger
   : "-1"
   ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.otherProperties
