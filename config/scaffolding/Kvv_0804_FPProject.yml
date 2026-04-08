@@ -7,9 +7,3 @@ packages:
   gitUrl: https://github.com/Karthik-V-IBM-10
   gitUsername: Karthik-V-IBM-10
   gitBranch: main
-- name: PackX
-  version: "1.0"
-  gitServerName: kvv
-  gitUrl: https://github.com/prabhakarsag
-  gitUsername: Karthik-V-IBM-10
-  gitBranch: main
