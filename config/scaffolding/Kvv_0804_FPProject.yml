@@ -18,14 +18,22 @@ packages:
   gitUsername: manoj-jannu-IBM
   gitBranch: main
 - name: JDBC_without_required_jar
+  version: "1.0"
+  gitServerName: kvv
+  gitUrl: https://github.com/prabhakarsag
+  gitUsername: Karthik-V-IBM-10
+  gitBranch: main
+- name: JMS2waySSL
   gitServerName: kvv
   gitUrl: https://github.com/prabhakarsag
   gitUsername: Karthik-V-IBM-10
   gitBranch: main
 services:
-- serviceName: project.kvv_0804_fp.WmSalesforceRESTProvider.com_webmethods_cloudstreams_salesforce_rest_v60.connections:rest0804
+- serviceName: project.kvv_0804_fp.WmSalesforceRESTProvider.com_webmethods_cloudstreams_salesforce_rest_v60.operations.actions:restAction
   packages:
   - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: JMS2waySSL
     version: "1.0"
   - name: DADA_GlobalVariable1
     version: "1.0"
@@ -40,6 +48,8 @@ services:
 - serviceName: project.kvv_0804_fp.integrations:globalVarTest
   packages:
   - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: JMS2waySSL
     version: "1.0"
   - name: DADA_GlobalVariable1
     version: "1.0"
@@ -63,6 +73,8 @@ services:
   packages:
   - name: Kvv_0804_FPProject
     version: "1.0"
+  - name: JMS2waySSL
+    version: "1.0"
   - name: DADA_GlobalVariable1
     version: "1.0"
   - name: JDBC_without_required_jar
@@ -76,6 +88,8 @@ services:
 - serviceName: project.kvv_0804_fp.referencedata:ref1
   packages:
   - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: JMS2waySSL
     version: "1.0"
   - name: DADA_GlobalVariable1
     version: "1.0"
@@ -91,19 +105,7 @@ services:
   packages:
   - name: Kvv_0804_FPProject
     version: "1.0"
-  - name: DADA_GlobalVariable1
-    version: "1.0"
-  - name: JDBC_without_required_jar
-    version: "1.0"
-  - name: WmJDBCAdapter
-    version: 10.3.0.0.34
-    wpmServer: https://packages.webmethods.io
-    wpmRegistry: licensed
-  - name: WmSalesforceRESTProvider
-    version: 12.0.0.0.16
-- serviceName: project.kvv_0804_fp.WmSalesforceRESTProvider.com_webmethods_cloudstreams_salesforce_rest_v60.operations.actions:restAction
-  packages:
-  - name: Kvv_0804_FPProject
+  - name: JMS2waySSL
     version: "1.0"
   - name: DADA_GlobalVariable1
     version: "1.0"
