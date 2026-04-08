@@ -24,12 +24,88 @@ packages:
   gitUsername: Karthik-V-IBM-10
   gitBranch: main
 - name: JMS2waySSL
+  version: "1.0"
   gitServerName: kvv
   gitUrl: https://github.com/prabhakarsag
   gitUsername: Karthik-V-IBM-10
   gitBranch: main
+- name: WmJDBCAdapter
+  wpmServer: https://packages.webmethods.io
+  wpmRegistry: licensed
 services:
+- serviceName: project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections:MSSQL
+  packages:
+  - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: JMS2waySSL
+    version: "1.0"
+  - name: DADA_GlobalVariable1
+    version: "1.0"
+  - name: JDBC_without_required_jar
+    version: "1.0"
+  - name: WmJDBCAdapter
+    version: 10.3.0.0.34
+    wpmServer: https://packages.webmethods.io
+    wpmRegistry: licensed
+  - name: WmSalesforceRESTProvider
+    version: 12.0.0.0.16
+- serviceName: project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.operations.actions:TestDBConn
+  packages:
+  - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: JMS2waySSL
+    version: "1.0"
+  - name: DADA_GlobalVariable1
+    version: "1.0"
+  - name: JDBC_without_required_jar
+    version: "1.0"
+  - name: WmJDBCAdapter
+    version: 10.3.0.0.34
+    wpmServer: https://packages.webmethods.io
+    wpmRegistry: licensed
+  - name: WmSalesforceRESTProvider
+    version: 12.0.0.0.16
 - serviceName: project.kvv_0804_fp.WmSalesforceRESTProvider.com_webmethods_cloudstreams_salesforce_rest_v60.operations.actions:restAction
+  packages:
+  - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: JMS2waySSL
+    version: "1.0"
+  - name: DADA_GlobalVariable1
+    version: "1.0"
+  - name: JDBC_without_required_jar
+    version: "1.0"
+  - name: WmJDBCAdapter
+    version: 10.3.0.0.34
+    wpmServer: https://packages.webmethods.io
+    wpmRegistry: licensed
+  - name: WmSalesforceRESTProvider
+    version: 12.0.0.0.16
+- serviceName: project.kvv_0804_fp.integrations:JMS_JNDI_SSL
+  packages:
+  - name: Kvv_0804_FPProject
+    version: "1.0"
+  - name: JMS2waySSL
+    version: "1.0"
+  - name: DADA_GlobalVariable1
+    version: "1.0"
+  - name: JDBC_without_required_jar
+    version: "1.0"
+  - name: WmJDBCAdapter
+    version: 10.3.0.0.34
+    wpmServer: https://packages.webmethods.io
+    wpmRegistry: licensed
+  - name: WmSalesforceRESTProvider
+    version: 12.0.0.0.16
+- serviceName: jms2wayssl_publisher:jms2wayssl_publisher
+  packages:
+  - name: JMS2waySSL
+    version: "1.0"
+- serviceName: pub.jms:send
+  packages:
+  - name: WmPublic
+    version: 12.1.0.0.810
+- serviceName: project.kvv_0804_fp.integrations:SIQAAdapterFlow
   packages:
   - name: Kvv_0804_FPProject
     version: "1.0"
@@ -120,20 +196,14 @@ services:
 configurationVariables:
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.accessTokenRefreshURL
   : https://login.salesforce.com/services/oauth2/token
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.authorizationHeaderPrefix
-  : Bearer
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.datasourceClass
+  : com.wm.dd.jdbcx.sqlserver.SQLServerDataSource
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth.consumerId
   : 3MVG9pe2TCoA1Pf6F9PMP1LEDshTltGOTU2s4Xe3IzQbW5IIn21uWb9hkEKoAPPs0jyz1LQxPZlHx8Rh0WIlr
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.refreshToken
-  : "{AES}iVEYOEICT1x7P9RL3dwVv0pQv1IODTw0Qm0vrSHPR8I0XZ0/KrBE7WODHo6AzR166idpzFEQfoTJmt6zt5fHZeFTx2dZghOC8L11eRCny+ESS68TtmHmF1U8vQb/ALWK"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.providerUrl
   : https://d0o000001qr6keac-dev-ed.my.salesforce.com
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.enableCompression
-  : "false"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.socketStaleCheck
   : "true"
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.socketLinger
-  : "-1"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.connectionEnabled
   : "true"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.poolIncrementSize
@@ -146,8 +216,10 @@ configurationVariables:
   : refresh_token
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.keepAliveInterval
   : "300000"
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.connectTimeout
-  : "30000"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.poolable
+  : "false"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.trustStore
+  : ""
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.expireTimeout
   : "1000"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.maximumPoolSize
@@ -156,28 +228,22 @@ configurationVariables:
   : org.apache.http.conn.ssl.DefaultHostnameVerifier
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.poolable
   : "true"
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.accessTokenRefreshURLRequest
-  : URL Query String
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.timeoutType
-  : auto
-  ? iscloudstreamsconnectorservice.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..operations..actions:restAction.virtualServiceName
-  : WmCloudStreams.RestVS
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.user
+  : sa
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.startupBackoffSecs
   : "10"
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.authorizationServerUrl
-  : https://login.salesforce.com/services/oauth2/authorize
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.expireTimeout
+  : "1000"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth.accessToken
   : "{AES}bzO+KX5xKoE0CKrgiYZryKxS2NVwK6HkAcdlocPAK3cSwlFxXZaNQSaYDLomvMdRnTc9y71w4vrmdZo32deC+riyGOzDQ2PWHGR+enADq+yG7D/ZPRBLK4758yfHpiEMWQaj7H0JjShOfa8LjDvlFmmK1wuN3U1rA1B0VhuZoUw="
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.readTimeout
   : "30000"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.serverName
+  : 9.60.195.99
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.refreshAccessToken
   : "true"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.reuseAddr
   : "false"
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.idleTimeout
-  : "-1"
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.blockTimeout
-  : "1000"
   ? iscloudstreamsconnectorservice.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..operations..actions:restAction.connectionAlias
   : project.kvv_0804_fp.WmSalesforceRESTProvider.com_webmethods_cloudstreams_salesforce_rest_v60.connections:rest0804
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.retryCount
@@ -186,8 +252,8 @@ configurationVariables:
   : https://login.salesforce.com/services/oauth2/token
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.validateAfterInactivity
   : "1000"
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.enableSNI
-  : "true"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.startupRetryCount
+  : "0"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.retryIfRequestSentOk
   : "true"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.tcpNoDelay
@@ -196,7 +262,63 @@ configurationVariables:
   : "{AES}H3DUtu7FPRrFm9VYcSfJnS3lCjio/Y0dcYLG0xJfNKLdKR+a9WILwQTFauAGCQLJq9tT9MRnltJ6j2bw1Uxhv2mK1wuN3U1rA1B0VhuZoUw="
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.sockBuffSize
   : "8192"
-  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.minimumPoolSize
-  : "1"
   ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.startupRetryCount
   : "0"
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.authorizationHeaderPrefix
+  : Bearer
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.refreshToken
+  : "{AES}iVEYOEICT1x7P9RL3dwVv0pQv1IODTw0Qm0vrSHPR8I0XZ0/KrBE7WODHo6AzR166idpzFEQfoTJmt6zt5fHZeFTx2dZghOC8L11eRCny+ESS68TtmHmF1U8vQb/ALWK"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.networkProtocol
+  : tcp
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.enableCompression
+  : "false"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.startupBackoffSecs
+  : "10"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.transactionType
+  : NO_TRANSACTION
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.socketLinger
+  : "-1"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.otherProperties
+  : loginTimeout=60;driverType=thin;
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.minimumPoolSize
+  : "1"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.poolIncrementSize
+  : "1"
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.connectTimeout
+  : "30000"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.portNumber
+  : "1433"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.keyStore
+  : ""
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.dbType
+  : MSSQL
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.accessTokenRefreshURLRequest
+  : URL Query String
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.timeoutType
+  : auto
+  ? iscloudstreamsconnectorservice.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..operations..actions:restAction.virtualServiceName
+  : WmCloudStreams.RestVS
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.oauth_v20.authorizationServerUrl
+  : https://login.salesforce.com/services/oauth2/authorize
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.heartBeatInterval
+  : "0"
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.idleTimeout
+  : "-1"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.maximumPoolSize
+  : "10"
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.blockTimeout
+  : "1000"
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.cn.enableSNI
+  : "true"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionManagerSettings.blockingTimeout
+  : "1000"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.driverType
+  : Progress® DataDirect®
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.password
+  : "{AES}X4QCAWgjWkTdMQvFA5XaqGmK1wuN3U1rA1B0VhuZoUw="
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionEnabled
+  : "false"
+  ? cloudstreamsconnection.project..kvv_0804_fp..WmSalesforceRESTProvider..com_webmethods_cloudstreams_salesforce_rest_v60..connections:rest0804.minimumPoolSize
+  : "1"
+  ? artConnection.Kvv_0804_FPProject.project.kvv_0804_fp.WmJDBCAdapter.com_wm_adapter_wmjdbc_JDBCAdapter.connections.MSSQL.connectionSettings.databaseName
+  : SIQACloud
